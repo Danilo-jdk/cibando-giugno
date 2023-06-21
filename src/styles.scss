@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "primeicons/primeicons.css";
+
+body {
+  font-family: 'Montserrat', sans-serif!important;
+}
+
+.bg-red {
+  background-color: #8e210b!important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+.carousel {
+  .carousel-inner {
+    margin-top: 1px!important;
+  }
+
+  .carousel-caption {
+    bottom: 6.25rem!important;
+    h3 {
+      font-family: "Homemade Apple", cursive;
+      font-size: 40px;
+      text-shadow: black 2px 3px 3px;
+    }
+  }
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 4rem!important;
+    height: 4rem!important;
+  }
+}
+.fotoSingola {
+  width: 100%;
+  height: 520px ;
+}
