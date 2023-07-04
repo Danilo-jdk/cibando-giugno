@@ -1,0 +1,58 @@
+@import '../../../../styles/colors.scss';
+
+.contenitore {
+  border-radius: 25px;
+    width: 75%;
+    margin: 20px auto;
+    border: 2px solid $primary-color-1;
+    padding: 0!important;
+
+    .colonna-dx {
+      background-image: url('https://www.lospicchiodaglio.it/img/news/sapete-cos-e-il-junk-food.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 0px 25px 25px 0px;
+    }
+
+    a {
+      color: $primary-color-1;
+      text-decoration: none;
+  }
+
+  .btn.btn-primary {
+    background: #8e210b;
+    border: 1px solid #8e210b;
+   margin-left: 0px;
+  }
+}
+
+.form-control {
+  float: right;
+  width: 91% !important;
+}
+
+.mat-icon {
+  position: relative;
+  top: 6px;
+}
+
+.form-label {
+  margin-left: 35px;
+}
+
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+
+input.ng-valid.ng-touched {
+  border: 1px solid rgb(55, 163, 40);
+}
+.is-danger {
+  font-size: 11px;
+    color: red;
+    text-align: right;
+    margin-top: -17px;
+    font-weight: 900;
+}

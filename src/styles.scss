@@ -1,18 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "primeicons/primeicons.css";
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import './styles/colors.scss';
+
 
 body {
   font-family: 'Montserrat', sans-serif!important;
 }
 
 .bg-red {
-  background-color: #8e210b!important;
+  background-color: $primary-color-1!important;
 }
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+footer {
+  clear: both;
+}
 
+.active{
+  color: white!important;
+  font-weight: bold!important;
+}
+
+.campoPassword {
+  padding: 0px!important;
+
+  .p-inputtext {
+    border: none!important;
+    padding: 0.4rem 0.5rem!important;
+  }
+}
+
+
+.contenitore {
+  width: 100%;
+  padding: 20px 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
 
 .carousel {
   .carousel-inner {
@@ -24,15 +57,86 @@ body {
     h3 {
       font-family: "Homemade Apple", cursive;
       font-size: 40px;
-      text-shadow: black 2px 3px 3px;
+      text-shadow: $secondary-color-1 2px 3px 3px;
     }
   }
   .carousel-control-prev-icon, .carousel-control-next-icon {
     width: 4rem!important;
     height: 4rem!important;
+    background-color: $primary-color-1;
+    border-radius: 50%;
   }
 }
+
+.p-password {
+  display: block!important;
+}
+
+.p-inputtext, .p-password-input{
+  width: 100%!important;
+}
+
+#carousel-title {
+    clear: both;
+
+  .carousel.slide {
+    height: 21vh;
+    background: $secondary-color-1;
+
+      .carousel-inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        top: 27%!important;
+
+         .carousel-caption {
+          bottom: 0rem!important;
+          left: 0%!important;
+          position: relative!important;
+      }
+
+        .carousel-caption h3, .carousel .carousel-caption .h3 {
+          font-family: "Homemade Apple", cursive;
+          font-size: 30px!important;
+          text-shadow: $secondary-color-1 2px 3px 3px;
+      }
+    }
+  }
+}
+
+
+
 .fotoSingola {
   width: 100%;
   height: 520px ;
+}
+
+.testoEvidenziato {
+  background-color: yellow;
+  width: 400px;
+}
+
+
+.modal-header {
+  background: $primary-color-1!important;
+  color: white!important;
+}
+
+.modal-body {
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  ul {
+    margin-top: 26px;
+    list-style: none;
+}
+
+}
+
+.modal-footer {
+  background: $primary-color-1!important;
+  color: white!important;
 }

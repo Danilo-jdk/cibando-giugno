@@ -1,0 +1,49 @@
+<app-carousel pag="home"></app-carousel>
+<div class="contenitore">
+  <h2 [ngClass]="evidenziato ? 'testoEvidenziato' : '' " (click)="onEvidenziazione()" style="cursor: pointer;">Benvenuti in Cibando</h2>
+  <p class="paragrafo" [ngStyle]="{'background-color': evidenziato === true ? 'yellow' : 'white' }">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia pariatur ab quibusdam, accusantium deleniti odit a harum hic, qui ex quaerat veniam praesentium est deserunt doloribus amet aspernatur impedit. Debitis saepe molestias asperiores, magnam laborum itaque odio quis optio fuga quod voluptatem? Eveniet sequi qui perferendis obcaecati enim ullam aut pariatur harum, facere molestiae dignissimos accusamus eum reiciendis minus iure hic molestias rem unde quos laboriosam quis fugiat? Nam dolorum sed dicta vitae voluptatum excepturi eligendi odit cupiditate. Atque esse labore nihil officia non molestiae dolorem ipsam harum laborum, blanditiis expedita recusandae consectetur dicta corporis architecto quaerat, delectus soluta praesentium eos totam obcaecati eveniet ex quis pariatur! Earum obcaecati magnam nisi laudantium similique voluptatum ipsum consequatur nemo aliquid, sed libero molestias quo aliquam, magni, quos amet et at cum! Illum ea ut iusto architecto, voluptatum dicta nam tenetur, fugit assumenda, possimus error? Tempora officia dicta consectetur, labore porro iure vero enim tempore adipisci, suscipit a voluptatum pariatur quaerat fugit, id odit ipsum neque quod nisi illum corporis? Cupiditate optio dolore nobis sapiente nulla. Praesentium aperiam laborum placeat tempore unde cum, veniam exercitationem fugiat aspernatur illo accusantium consequatur possimus in deserunt pariatur laboriosam error earum voluptatibus nulla. Similique eveniet debitis voluptas dolore laborum ullam doloremque eos voluptatem? Blanditiis, perferendis. Rerum o ptio veritatis culpa ratione, non veniam corporis? Harum ipsa amet consequuntur
+  </p>
+  <h2>Le ultime ricette</h2>
+  <app-recipe-card [recipes]="ricette"></app-recipe-card>
+</div>
+
+<!-- <ng-template [ngIf]="nome">
+  <div id="container-modale" >
+    <div id="modale">
+      <div id="header-modale">
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <h2>Grazie {{nome}} per esserti registrato, ecco i toi dati:</h2>
+      <ul>
+        <li>Nome: <strong>{{nome}}</strong></li>
+        <li>Email: <strong>{{email}}</strong></li>
+      </ul>
+      <div class="container-button">
+        <button class="btn btn-primary" (click)="closeModal()">CHIUDI</button>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+
+  <ng-template #modalRegistration let-modal >
+    <div class="modal-header">
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+      <h2>Grazie {{nome}} per esserti registrato, ecco i toi dati:</h2>
+      <ul>
+        <li>Nome: <strong>{{nome}}</strong></li>
+        <li>Email: <strong>{{email}}</strong></li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" aria-label="cancel" (click)="modal.dismiss()">CHIUDI</button>
+    </div>
+  </ng-template>
+
+
+
+
+
+

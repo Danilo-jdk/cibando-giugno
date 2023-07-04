@@ -1,0 +1,198 @@
+<!-- <div class="row contenitore" style="border-radius: 25px;">
+  <div class="col-xl-5 order-2 order-lg-1">
+
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+
+    <form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-user" ></i>
+          <input placeholder="nominativo" type="text" id="name" name="name" ngModel class="form-control"/>
+          <label class="form-label" for="name">Il tuo nome</label>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-envelope" ></i>
+          <input placeholder="email" type="email" id="email" name="email" ngModel class="form-control"/>
+          <label class="form-label" for="email">La tua email</label>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-lock" ></i>
+         <input placeholder="password" type="password" id="password" name="password" class="form-control" ngModel />
+          <label class="form-label" for="password">Password</label>
+
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-key" ></i>
+          <input type="password" id="ripetiPassword" name="ripetiPassword" class="form-control" ngModel/>
+          <label class="form-label" for="ripetiPassword">Ripeti password</label>
+        </div>
+      </div>
+
+      <div class="form-check d-flex justify-content-center mb-5">
+        <input class="form-check-input me-2" type="checkbox" value="" id="accetto" name="accetto" ngModel/>
+        <label class="form-check-label" for="accetto">
+          Dichiaro di accettare i <a>Termini del servizio</a>
+        </label>
+      </div>
+
+
+      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <button type="submit" class="btn btn-primary btn-lg">Registrati</button>
+      </div>
+
+    </form>
+
+  </div>
+  <div class=" col-xl-7  order-1 order-lg-2 colonna-dx">
+
+  </div>
+</div> -->
+
+<!-- Reactive Form -->
+<div class="row contenitore" style="border-radius: 25px;">
+  <div class="col-xl-5 order-2 order-lg-1">
+
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+
+    <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-user" ></i>
+          <input placeholder="nominativo" type="text" id="name" name="name" formControlName="name"  class="form-control"/>
+          <label class="form-label" for="name">Il tuo nome</label>
+          <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-envelope" ></i>
+          <input placeholder="email" type="email" id="email" name="email"  formControlName="email" class="form-control"/>
+          <label class="form-label" for="email">La tua email</label>
+          <p class="help is-danger" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">Il campo email è obbligatorio</p>
+          <p class="help is-danger" *ngIf="form.controls.email.hasError('email') && form.controls.email.touched">Il campo email deve contenere una mail valida</p>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-lock" ></i>
+         <!-- <input placeholder="password" type="password" id="password" name="password" formControlName="password" class="form-control"  /> -->
+         <p-password  class="form-control campoPassword"  formControlName="password"  [toggleMask]="true" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$">
+
+             <ng-template pTemplate="header">
+                <h6>Scrivi una password</h6>
+            </ng-template>
+            <ng-template pTemplate="footer">
+              <p-divider></p-divider>
+              <p>Suggerimenti</p>
+              <ul style="line-height: 1.5;">
+                <li>una lettera minuscola</li>
+                <li>una lettera maiuscola</li>
+                <li>una numero</li>
+                <li>minimo 8 caratteri e massimo 16</li>
+              </ul>
+            </ng-template>
+
+         </p-password>
+
+
+
+          <label class="form-label" for="password">Password</label>
+          <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern')  && form.controls.password.touched">Il campo password deve contenere 1 Maiuscola, 1 minuscola, 1 numero, 1 carattere speciale e almeno 8 caratteri</p>
+          <p class="help is-danger" *ngIf="form.controls.password.hasError('required') && form.controls.password.touched && form.controls.password.dirty">Il campo password è obbligatorio</p>
+
+        </div>
+      </div>
+
+      <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-outline flex-fill mb-0">
+          <i class="pi pi-key" ></i>
+          <input type="password" id="ripetiPassword" name="ripetiPassword" formControlName="ripetiPassword" class="form-control" (ngModelChange)="convalidaPassword()" />
+          <label class="form-label" for="ripetiPassword">Ripeti password</label>
+          <p class="help is-danger" *ngIf="!convalidaPassword() && form.get('ripetiPassword').dirty">La password scritta non combacia</p>
+        </div>
+      </div>
+
+      <div class="form-check d-flex justify-content-center mb-5">
+        <input class="form-check-input me-2" type="checkbox" value="" id="accetto" formControlName="accetto" name="accetto" />
+        <label class="form-check-label" for="accetto">
+          Dichiaro di accettare i <a (click)="open(modalPrivacy, titolo, id)">Termini del servizio</a>
+        </label>
+      </div>
+
+
+      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Registrati</button>
+      </div>
+
+        <div class="accordion" id="accordionPrivacy">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy" aria-expanded="true" aria-controls="privacy">
+                Privacy
+              </button>
+            </h2>
+            <div id="privacy" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionPrivacy">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trattamentoDati" aria-expanded="false" aria-controls="trattamentoDati">
+                Trattamento dei dati
+              </button>
+            </h2>
+            <div id="trattamentoDati" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPrivacy">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </form>
+
+  </div>
+  <div class=" col-xl-7  order-1 order-lg-2 colonna-dx">
+
+  </div>
+</div>
+
+
+<ng-template #modalPrivacy let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    corpo della modale
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" aria-label="cancel" (click)="modal.dismiss()">ANNULLA</button>
+    <button type="button" class="btn btn-primary" aria-label="action" (click)="modal.close()">AZIONE DA COMPIERE</button>
+  </div>
+</ng-template>
+
+<ng-template #modalDue let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    corpo della seconda modale
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" aria-label="cancel" (click)="modal.dismiss()">ANNULLA</button>
+    <button type="button" class="btn btn-primary" aria-label="action" (click)="modal.close()">AZIONE DA COMPIERE</button>
+  </div>
+</ng-template>

@@ -1,0 +1,41 @@
+@import "../../../../styles/colors.scss";
+
+.detail-image{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+}
+.container-detail{
+  display:block;
+  float: left;
+  width: 100%;
+  padding: 20px 40px;
+  background: white;
+
+  .detail-title{
+    // font-family: 'Homemade Apple', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: $primary-color-1;
+    }
+
+  .detail-description{
+    text-align: justify;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .detail-data{
+    text-align: right;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .difficolta {
+    width: 120px;
+  }
+}

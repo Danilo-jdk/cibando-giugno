@@ -1,40 +1,5 @@
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-red">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="../assets/images/icona-cibando.png" class="logo" [alt]="label">
-        Cibando</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#"><i class="pi pi-home"></i> Home</a>
-          <a class="nav-link" href="#"><i class="pi pi-book"></i> Ricette</a>
-          <a class="nav-link" href="#"><i class="pi pi-user"></i> Contatti</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<ngb-carousel *ngIf="images.length > 1">
-	<ng-template ngbSlide *ngFor="let image of images">
-		<div class="picsum-img-wrapper">
-			<img [src]="percorso + image.id + '.jpg'" [alt]="image.label" />
-		</div>
-		<div class="carousel-caption">
-			<h3>{{image.label}}</h3>
-		</div>
-	</ng-template>
-</ngb-carousel>
-<div *ngIf="images.length === 1">
-  <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" class="fotoSingola"/>
-</div>
-
-<div class="container-title">
-  <h2>App di Esempio di {{nome}}</h2>
-  <p class="paragrafo">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui nihil ut iste doloribus neque molestiae, assumenda fuga explicabo dolores recusandae, quibusdam veritatis repellendus dignissimos fugiat ad excepturi. <span>ciao</span>, earum optio!</p>
-</div>
+<app-header></app-header>
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

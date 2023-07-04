@@ -1,0 +1,19 @@
+@import "../../../../styles/colors.scss";
+
+h2 {
+  text-align: center;
+ margin-top: 30px;
+ padding-bottom: 30px;
+ height: 60px;
+}
+
+
+.messaggio {
+  font-size: 15px;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  font-weight: 900;
+  margin-top: -23px;
+  color: $primary-color-1
+}
