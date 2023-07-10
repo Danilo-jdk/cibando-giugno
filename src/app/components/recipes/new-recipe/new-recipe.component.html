@@ -1,0 +1,50 @@
+<h2>Nuova ricetta</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <label for="title">Titolo</label>
+        <input type="text" name="title" formControlName="title">
+    </div>
+    <div class="row">
+      <label for="description">Descrizione</label>
+      <textarea formControlName="description" name="description"></textarea>
+  </div>
+  <div class="row">
+    <label for="image">Foto ricetta</label>
+    <input type="text" name="image" formControlName="image">
+</div>
+<div class="row">
+  <label for="difficulty">Difficoltà ricetta</label>
+  <select formControlName="difficulty" name="difficulty">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+  </select>
+</div>
+<div class="row">
+  <button type="submit">Inserisci ricetta</button>
+</div>
+</form>
+
+
+<ng-template #modalRecipe let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <h2>Nuova ricetta inserita</h2>
+    <img [src]="ricetta.image" class="foto">
+    <ul>
+      <li>{{ricetta.title}}</li>
+      <li>{{ricetta.description}}</li>
+      <li>{{ricetta.difficulty}}</li>
+      <li>ricetta pubblicata: {{ricetta.title ? 'si' : 'no'}}</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" aria-label="cancel" (click)="modal.dismiss()">CHIUDI</button>
+    <button type="button" class="btn btn-primary" aria-label="action" (click)="modal.close()">Inserisci un'altra ricetta</button>
+  </div>
+</ng-template>

@@ -1,0 +1,29 @@
+
+
+<div *ngIf="gruppiCombinati$ |async">
+  <div>
+    <h2>Ecco i nostri clienti:</h2>
+    <ul>
+      <li *ngFor="let cliente of gruppi[0]">Nome: {{cliente.name}}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Ecco i nostri rivenditori:</h2>
+    <ul>
+      <li *ngFor="let cliente of gruppi[1]">Nome: {{cliente.name }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Ecco i nostri allievi:</h2>
+    <ul>
+      <li *ngFor="let cliente of gruppi[2]">Nome: {{cliente}}</li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="!gruppi.length" id="contenitore">
+<img src="../../../assets/images/loading.gif" style="width: 200px">
+</div>
+

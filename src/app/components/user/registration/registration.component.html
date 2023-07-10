@@ -67,7 +67,7 @@
       <div class="d-flex flex-row align-items-center mb-4">
         <div class="form-outline flex-fill mb-0">
           <i class="pi pi-user" ></i>
-          <input placeholder="nominativo" type="text" id="name" name="name" formControlName="name"  class="form-control"/>
+          <input placeholder="nominativo" type="text" id="name" name="name" formControlName="name"  class="form-control" appChangeColor appOnPlaceholder/>
           <label class="form-label" for="name">Il tuo nome</label>
           <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
         </div>
@@ -76,7 +76,7 @@
       <div class="d-flex flex-row align-items-center mb-4">
         <div class="form-outline flex-fill mb-0">
           <i class="pi pi-envelope" ></i>
-          <input placeholder="email" type="email" id="email" name="email"  formControlName="email" class="form-control"/>
+          <input placeholder="email" type="email" id="email" name="email"  formControlName="email" class="form-control" appOnPlaceholder/>
           <label class="form-label" for="email">La tua email</label>
           <p class="help is-danger" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">Il campo email è obbligatorio</p>
           <p class="help is-danger" *ngIf="form.controls.email.hasError('email') && form.controls.email.touched">Il campo email deve contenere una mail valida</p>

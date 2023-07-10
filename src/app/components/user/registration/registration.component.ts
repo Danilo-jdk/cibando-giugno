@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   form = new FormGroup({
     name: new FormControl('Mario', Validators.required),
-    email: new FormControl('Mario@gmail.com', [Validators.email, Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('Admin1234@', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/)]),
     ripetiPassword: new FormControl('Admin1234@', Validators.required),
     accetto: new FormControl(true, Validators.requiredTrue)
@@ -49,7 +49,13 @@ export class RegistrationComponent implements OnInit {
 
     this.userService.datiUtente.next(user);
 
-    this.router.navigateByUrl('home');
+    this.userService.insertUser(this.form.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigateByUrl('home');
+      },
+      error: (e) => console.log(e)
+    })
   }
 
   convalidaPassword(): boolean{

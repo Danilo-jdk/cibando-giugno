@@ -6,8 +6,29 @@
   width: 60px;
   margin-right: 10px;
 }
-.navbar-expand-lg .navbar-collapse {
-  display: flex !important;
-  flex-basis: auto;
+
+ul {
+  display: flex;
+  margin-left: 50px;
+  /* width: 284px; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
   justify-content: flex-end;
+  list-style: none;
+
+  li, a{
+    color: white;
+}
+}
+
+
+@media screen and (min-width: 992px) {
+
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: flex-end;
+  }
 }
