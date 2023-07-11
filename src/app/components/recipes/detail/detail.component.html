@@ -3,7 +3,7 @@
   <div class= "container-detail">
       <h2 class="detail-title">{{ricetta.title}}</h2>
       <p>
-        {{ricetta.description}}
+        <span [innerHTML]="ricetta.description"></span>
       </p>
       <p class="detail-description"><span>Difficoltà: </span>
       <img [src]="percorso + ricetta.difficulty + '.png'" class="difficolta">

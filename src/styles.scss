@@ -23,6 +23,14 @@ footer {
   font-weight: bold!important;
 }
 
+.btn-primary {
+  background-color: $primary-color-1!important;
+  color: white;
+  border: none!important;
+  margin-top: 10px!important;
+  margin-bottom: 10px!important;
+  display: block;
+}
 .campoPassword {
   padding: 0px!important;
 
@@ -74,6 +82,11 @@ footer {
 
 .p-inputtext, .p-password-input{
   width: 100%!important;
+}
+
+.descrizione .ck-editor__editable {
+  min-height: 200px!important;
+  max-height: 200px!important;
 }
 
 #carousel-title {

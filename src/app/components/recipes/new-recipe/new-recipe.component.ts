@@ -4,6 +4,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 import { Recipe } from 'src/app/models/recipe.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-new-recipe',
@@ -19,6 +20,44 @@ export class NewRecipeComponent {
     difficulty: new FormControl(0),
     published: new FormControl(true),
   });
+
+  Editor = ClassicEditor;
+  editorConfig = {
+    toolbar: {
+        items: [
+            'bold',
+            'italic',
+            'link',
+            '|',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'indent',
+            'outdent',
+            '|',
+            'insertTable',
+            'undo',
+            'redo',
+        ]
+    },
+    image: {
+        toolbar: [
+            'imageStyle:full',
+            'imageStyle:side',
+            '|',
+            'imageTextAlternative'
+        ]
+    },
+    table: {
+        contentToolbar: [
+            'tableColumn',
+            'tableRow',
+            'mergeTableCells'
+        ]
+    },
+    height: 300,
+};
+
 
   ricetta: Recipe;
   constructor(

@@ -1,4 +1,5 @@
-<h2>Nuova ricetta</h2>
+<section>
+  <h2>Nuova ricetta</h2>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
@@ -7,7 +8,7 @@
     </div>
     <div class="row">
       <label for="description">Descrizione</label>
-      <textarea formControlName="description" name="description"></textarea>
+      <ckeditor [editor]="Editor" [config]="editorConfig" formControlName="description" name="description" class="descrizione"></ckeditor>
   </div>
   <div class="row">
     <label for="image">Foto ricetta</label>
@@ -24,9 +25,10 @@
   </select>
 </div>
 <div class="row">
-  <button type="submit">Inserisci ricetta</button>
+  <button type="submit" class="btn btn-primary">Inserisci ricetta</button>
 </div>
 </form>
+</section>
 
 
 <ng-template #modalRecipe let-modal>

@@ -9,6 +9,9 @@ import { RegistrationComponent } from './components/user/registration/registrati
 import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
 import { CombineComponent } from './components/combine/combine.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { loggedInGuard } from './logged-in.guard';
+import { guardAdmin } from './guardAdmin.guard';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,7 +24,8 @@ const routes: Routes = [
   ]},
   { path: 'registrazione', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'combine', component: CombineComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [loggedInGuard]},
+  { path: 'combine', component: CombineComponent, canActivate: [loggedInGuard, guardAdmin]},
   { path: '**', redirectTo: 'home'}
 ];
 

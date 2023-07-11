@@ -8,7 +8,7 @@
       <div class="card-image" [ngStyle]="{'background-image': 'url(' + recipe.image + ')'}" (click)="inviaTitolo(recipe.title)" style="cursor: pointer;"></div>
       <div class="card-body">
         <h5 class="card-title">{{recipe.title}}</h5>
-        <p class="card-text">{{recipe.description | slice: 0:accorciaTesto(recipe.description)}}...</p>
+        <p class="card-text"><span [innerHTML]="recipe.description | slice: 0:accorciaTesto(recipe.description)"></span>...</p>
 
         <!-- <a routerLink="dettaglio/{{recipe._id}}" class="btn btn-primary">Visualizza</a> -->
 
