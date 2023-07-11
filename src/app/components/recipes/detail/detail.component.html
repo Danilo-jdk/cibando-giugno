@@ -9,7 +9,11 @@
       <img [src]="percorso + ricetta.difficulty + '.png'" class="difficolta">
       </p>
       <p class="detail-data"><span>Ricetta pubblicata il: </span>{{ricetta.createdAt}}</p>
+
+      <button (click)="tornaIndietro()" *ngIf="pag != 0" class="btn btn-primary">TORNA INDIETRO</button>
+      <button routerLink="home" *ngIf="pag == 0" class="btn btn-primary">TORNA INDIETRO</button>
   </div>
+
 
 </div>
 

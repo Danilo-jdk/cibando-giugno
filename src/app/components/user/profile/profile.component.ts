@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { take } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import * as moment from 'moment';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,11 @@ export class ProfileComponent implements OnInit {
 
   dataRegistrazione: any;
 
-  constructor(private userService: UserService){
+  noteAdd: SafeHtml;
+
+
+
+  constructor(private userService: UserService,private sanitizer: DomSanitizer){
 
   }
  ngOnInit(): void {
@@ -29,7 +34,8 @@ export class ProfileComponent implements OnInit {
   this.userService.getUser(email).pipe(take(1)).subscribe({
     next: res => {
       this.dati = res;
-      this.dataRegistrazione = moment(this.dati.createdAt).locale('it').format('dddd DD MMMM YYYY')
+      this.dataRegistrazione = moment(this.dati.createdAt).locale('it').format('dddd DD MMMM YYYY');
+      this.noteAdd = this.sanitizer.bypassSecurityTrustHtml(res.note);
     }
   })
  }

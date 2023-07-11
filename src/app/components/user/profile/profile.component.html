@@ -6,10 +6,9 @@
   <li>Nome: {{dati.name}}</li>
   <li>Email: {{dati.email}}</li>
   <li>Ruolo: {{dati.role}}</li>
-  <li>Note: {{dati.note || 'nessuna nota'}}</li>
+  <li>Note: <span [innerHTML]="noteAdd || 'nessuna nota'"></span></li>
 
   <li>Registrato il : {{dataRegistrazione}}</li>
-
 
 </ul>
 

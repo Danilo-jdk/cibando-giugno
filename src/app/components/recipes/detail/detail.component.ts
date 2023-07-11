@@ -12,6 +12,8 @@ export class DetailComponent implements OnInit {
   ricetta: Recipe;
   percorso = '../../../../assets/images/difficolta-';
 
+  pag;
+
   constructor(
     private recipeService: RecipesService,
     private activatedRoute: ActivatedRoute,
@@ -19,12 +21,17 @@ export class DetailComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
-      this.onGetRecipe();
+      this.onGetRecipe2();
     }
 
     onGetRecipe(): void {
       // const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));
       const id = this.activatedRoute.snapshot.paramMap.get('_id');
+      const pag = this.activatedRoute.snapshot.paramMap.get('page');
+
+      if(pag){
+        this.pag = pag;
+      }
 
       this.recipeService.getRecipe(id).subscribe({
         next: (res) => {
@@ -35,6 +42,14 @@ export class DetailComponent implements OnInit {
     }
 
     onGetRecipe2(): void {
+
+      this.activatedRoute.parent.params.subscribe((par) => {
+        const pagina = par['pag'];
+        if(pagina){
+          this.pag = pagina;
+        }
+      })
+
       this.activatedRoute.params.subscribe((urlParams) => {
         const id = urlParams['_id'];
         const idNumb = Number(id);
@@ -43,6 +58,10 @@ export class DetailComponent implements OnInit {
           res => this.ricetta = res
         );
       })
+    }
+
+    tornaIndietro(){
+      this.router.navigateByUrl('/ricette/' + this.pag)
     }
 
 }

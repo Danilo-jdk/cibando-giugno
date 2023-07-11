@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" routerLink="home" routerLinkActive="active"><i class="pi pi-home"></i> Home</a>
-          <a class="nav-link" routerLink="ricette" routerLinkActive="active"><i class="pi pi-book" ></i> Ricette</a>
+          <a class="nav-link" routerLink="ricette/1" routerLinkActive="active"><i class="pi pi-book" ></i> Ricette</a>
           <a class="nav-link" routerLink="ricette/nuova-ricetta" routerLinkActive="active" *ngIf="ruolo == 'admin' && auth.isLogged()"><i class="pi pi-book" ></i> Nuova ricetta</a>
           <a class="nav-link"><i class="pi pi-envelope"></i> Contatti {{ruolo}}</a>
 

@@ -12,9 +12,9 @@ export class RecipesListComponent implements OnInit {
 
   // ricette: Recipe[];
 
-  ricette$ = this.recipesService.getRecipesAsync().pipe(
-    map( ricette => ricette.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 3)),
-  );
+  // ricette$ = this.recipesService.getRecipesAsync().pipe(
+  //   map( ricette => ricette.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 1)),
+  // );
 
   messaggio: string;
 

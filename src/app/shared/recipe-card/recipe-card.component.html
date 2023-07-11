@@ -1,8 +1,9 @@
 
 
 
-<div *ngIf="recipes$ | async as recipess">
-  <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="recipess.length"></p-paginator>
+<div *ngIf="pagina && recipes$ | async as recipess">
+  <p-paginator (onPageChange)="paginate($event)" [first]="first" [rows]="ricettePerPagina" [totalRecords]="recipess.length" [showPageLinks]="true" *ngIf="pagina === 'ricette'"></p-paginator>
+
   <div class="container-card" *ngFor="let recipe of recipess | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
     <div class="card">
       <div class="card-image" [ngStyle]="{'background-image': 'url(' + recipe.image + ')'}" (click)="inviaTitolo(recipe.title)" style="cursor: pointer;"></div>
@@ -12,7 +13,26 @@
 
         <!-- <a routerLink="dettaglio/{{recipe._id}}" class="btn btn-primary">Visualizza</a> -->
 
-        <a [routerLink]="'/ricette/dettaglio/'+ recipe.title + '/' + recipe._id" class="btn btn-primary">Visualizza</a>
+        <a [routerLink]="'/ricette/' + page + '/dettaglio/' + recipe.title + '/' + recipe._id" class="btn btn-primary" >Visualizza</a>
+        <i class="pi pi-trash" style="cursor: pointer;" *ngIf="ruolo == 'admin'"></i>
+        {{ruolo}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!pagina && recipes$ | async as recipess">
+  <div class="container-card" *ngFor="let recipe of recipess | slice: -4">
+    <div class="card">
+      <div class="card-image" [ngStyle]="{'background-image': 'url(' + recipe.image + ')'}" (click)="inviaTitolo(recipe.title)" style="cursor: pointer;"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{recipe.title}}</h5>
+        <p class="card-text"><span [innerHTML]="recipe.description | slice: 0:accorciaTesto(recipe.description)"></span>...</p>
+
+        <!-- <a routerLink="dettaglio/{{recipe._id}}" class="btn btn-primary">Visualizza</a> -->
+
+        <a [routerLink]="'/ricette/0/dettaglio/' + recipe.title + '/' + recipe._id" class="btn btn-primary" >Visualizza</a>
         <i class="pi pi-trash" style="cursor: pointer;" *ngIf="ruolo == 'admin'"></i>
         {{ruolo}}
       </div>

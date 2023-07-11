@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { RECIPES } from '../mocks/recipe.mock';
-import { Observable, of } from 'rxjs';
+import { Observable, ReplaySubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+
+@Injectable()
 export class RecipesService {
+
+  pagina = new ReplaySubject();
 
   apiBaseUrl = 'api/recipes';
 
