@@ -10,6 +10,8 @@ import { ToastModule } from 'primeng/toast';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { RecipesModule } from './components/recipes/recipes.module';
 import { EditorModule } from 'primeng/editor';
+import { MaterialCompModule } from 'src/material.module';
+
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +24,7 @@ import { OnPlaceholderDirective } from './directives/on-placeholder.directive';
 import { CombineComponent } from './components/combine/combine.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { FiglioComponent } from './components/figlio/figlio.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     OnPlaceholderDirective,
     CombineComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    FiglioComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     CKEditorModule,
     RecipesModule,
     EditorModule,
+    MaterialCompModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -61,7 +61,7 @@
 <div class="row contenitore" style="border-radius: 25px;">
   <div class="col-xl-5 order-2 order-lg-1">
 
-    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" ngNonBindable>{{ Registrati }}</p>
 
     <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="d-flex flex-row align-items-center mb-4">
@@ -158,6 +158,8 @@
 
       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
         <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Registrati</button>
+        <button type="button" class="btn btn-delete btn-lg" (click)="svuotaModulo()">Svuota modulo</button>
+
       </div>
 
         <div class="accordion" id="accordionPrivacy">

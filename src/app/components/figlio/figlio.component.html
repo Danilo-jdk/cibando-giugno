@@ -1,0 +1,9 @@
+<div>
+  <h2>Ecco l'oggetto dal padre:{{oggettoFiglio}}</h2>
+  <label>Scrivi il nome dell'oggetto da inserire:</label>
+  <input type="text" id="oggetto-input" #nuovoOggetto class="form-control" style="width: 40%;">
+  <ng-content></ng-content>
+  <button (click)="addNuovoOggetto(nuovoOggetto.value)" class="btn btn-primary">Clicca qui per aggiungere un oggetto</button>
+  <button (click)="removeOggetti()" class="btn btn-delete">Cancella lista</button>
+  <ng-content select="[secondaZona]"></ng-content>
+</div>

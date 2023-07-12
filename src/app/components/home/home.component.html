@@ -6,6 +6,17 @@
   </p>
   <h2>Le ultime ricette</h2>
   <app-recipe-card></app-recipe-card>
+
+  <app-figlio [oggettoFiglio]="oggettoCorrente" (oggettoEmesso)="riceviOggetto($event)">
+   <div *ngIf="oggetti.length">
+    <h3>Lista di oggetti:</h3>
+    <ul>
+      <li *ngFor="let oggetto of oggetti"> {{oggetto}} </li>
+    </ul>
+   </div>
+
+   <h2 secondaZona>Ecco la seconda incursione</h2>
+  </app-figlio>
 </div>
 
 <!-- <ng-template [ngIf]="nome">

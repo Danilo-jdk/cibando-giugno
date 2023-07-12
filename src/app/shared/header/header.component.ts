@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { take } from 'rxjs';
 import { RecipesService } from 'src/app/services/recipes.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements DoCheck, OnInit {
   user: any;

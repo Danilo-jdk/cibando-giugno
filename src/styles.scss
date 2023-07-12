@@ -31,6 +31,15 @@ footer {
   margin-bottom: 10px!important;
   display: block;
 }
+.btn-delete {
+  background-color: $primary-color-2!important;
+  color: white;
+  border: none!important;
+  margin-top: 10px!important;
+  margin-bottom: 10px!important;
+  margin-left: 10px;
+  display: block;
+}
 .campoPassword {
   padding: 0px!important;
 
@@ -153,3 +162,6 @@ footer {
   background: $primary-color-1!important;
   color: white!important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

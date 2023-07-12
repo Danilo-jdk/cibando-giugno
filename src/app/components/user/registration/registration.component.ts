@@ -78,6 +78,15 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
+  svuotaModulo(){
+    this.form.patchValue({
+      name: '',
+      email: '',
+      accetto: false,
+    })
+  }
+
+
   convalidaPassword(): boolean{
     let password = this.form.controls.password.value;
     let ripetiPassword = this.form.controls.ripetiPassword.value;

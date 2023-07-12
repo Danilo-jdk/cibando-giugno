@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit{
 
   ricette: Recipe[];
 
+  oggettoCorrente = "testo dal padre";
+
+  oggetti = [];
 
   constructor(
     private recipesService: RecipesService,
@@ -47,6 +50,15 @@ export class HomeComponent implements OnInit{
       this.open(this.modale);
      });
 
+  }
+
+  riceviOggetto(e: string) {
+    console.log(e);
+    this.oggetti.push(e);
+
+    if(e === 'elimina'){
+      this.oggetti = [];
+    }
   }
 
 

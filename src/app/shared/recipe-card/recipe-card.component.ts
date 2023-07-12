@@ -65,4 +65,12 @@ onGetPage(): void {
  }
 
 
+ getSliceValue(pagina: boolean, page: number, ricettePerPagina: number): string {
+  if (pagina) {
+    return `${(page * ricettePerPagina) - ricettePerPagina}:${page * ricettePerPagina}`;
+  } else {
+    return `0:4`;
+  }
+}
+
 }
